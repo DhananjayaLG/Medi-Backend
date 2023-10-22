@@ -61,7 +61,26 @@ userRoutes.get('/getDoctors',expressAsyncHandler(async(req,res)=>{
     Status: i.Status,
     Address:i.Address,
     ContactNo: i.ContactNo,
-    DoctorID:i.ID
+    DoctorID:i.ID,
+    _id:i._id
+            }
+            document.push(u)
+        }
+        res.send(document)
+    }
+   else{
+    res.send({message:"can't fetch"})
+   }
+}));
+userRoutes.get('/getDoctorsNames',expressAsyncHandler(async(req,res)=>{
+    const Doctors=await user.find({role:"doctor"});
+    let document=[];
+    if(Doctors){
+        for(const i of Doctors){
+            const u= {
+    
+    Name:i.Name,
+    _id:i._id
             }
             document.push(u)
         }
@@ -86,9 +105,28 @@ userRoutes.get('/getConsultants',expressAsyncHandler(async(req,res)=>{
     Status: i.Status,
     Address:i.Address,
     ContactNo: i.ContactNo,
-    ConsultantID:i.ID
+    ConsultantID:i.ID,
+    _id:i._id
             }
             document.push(u)
+        }
+        res.send(document)
+    }
+   else{
+    res.send({message:"can't fetch"})
+   }
+}));
+userRoutes.get('/getConsultantsNames',expressAsyncHandler(async(req,res)=>{
+    const consultants=await user.find({role:"consultant"});
+    let document=[];
+    if(consultants){
+        for(const i of consultants){
+            const u= {
+    
+                Name:i.Name,
+                _id:i._id
+                        }
+                        document.push(u)
         }
         res.send(document)
     }
