@@ -15,7 +15,7 @@ userRoutes.post("/login",expressAsyncHandler(async(req,res)=>{
             res.send({Email:User.Email,role:User.role,name:User.Name,token:generateToken(User)});
         }
         else{
-            res.send({message:"Email or Password Incorrect"})
+            res.send({message:"Incorrect Email or Password "})
         }
     }
     else{
