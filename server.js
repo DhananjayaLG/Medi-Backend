@@ -33,7 +33,7 @@ app.use('/api/leave',leaveRouter)
 app.use('/api/user',userRoutes);
 const port= process.env.PORT || 5000;
 app.listen(port, ()=>{
-    console.log("jhfbdkhf");
+    console.log("listen port");
 })
 
 app.use('/api/wards',wardRoutes);
